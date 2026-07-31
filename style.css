@@ -1,9 +1,4 @@
-/* ================================================
-   PURVA KHURUD PORTFOLIO — STYLE.CSS
-   Premium Dark Theme | Blue Neon | Glassmorphism
-   ================================================ */
 
-/* ---- CSS CUSTOM PROPERTIES ---- */
 :root {
   --bg-primary:     #0B0F19;
   --bg-secondary:   #111827;
@@ -40,7 +35,7 @@
   --shadow-glow-sm: 0 0 15px var(--accent-glow);
 }
 
-/* ---- RESET & BASE ---- */
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -82,7 +77,7 @@ button {
   font-family: inherit;
 }
 
-/* ---- UTILITIES ---- */
+
 .accent {
   color: var(--accent-primary);
 }
@@ -103,7 +98,7 @@ button {
   box-shadow: var(--shadow-card), 0 0 20px var(--accent-glow-soft);
 }
 
-/* ---- PAGE LOADER ---- */
+
 .page-loader {
   position: fixed;
   inset: 0;
@@ -151,7 +146,7 @@ button {
   to { transform: rotate(360deg); }
 }
 
-/* ---- CURSOR GLOW ---- */
+
 .cursor-glow {
   position: fixed;
   width: 400px;
@@ -164,7 +159,7 @@ button {
   transition: opacity 0.3s ease;
 }
 
-/* ---- NAVBAR ---- */
+
 .navbar {
   position: fixed;
   top: 0;
@@ -270,7 +265,6 @@ button {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ---- SOCIAL SIDEBAR ---- */
 .social-sidebar {
   position: fixed;
   left: 28px;
@@ -317,7 +311,7 @@ button {
   transform: translateY(-2px);
 }
 
-/* ---- SECTION BASE ---- */
+
 .section {
   min-height: 100vh;
   display: flex;
@@ -366,7 +360,7 @@ button {
   margin: 0 auto;
 }
 
-/* ---- ANIMATIONS ---- */
+
 .fade-in-up,
 .fade-in-left,
 .fade-in-right {
@@ -393,7 +387,7 @@ button {
   transform: translate(0);
 }
 
-/* ---- BUTTONS ---- */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -457,9 +451,7 @@ button {
   justify-content: center;
 }
 
-/* ================================================
-   HOME SECTION
-   ================================================ */
+
 .home-section {
   min-height: 100vh;
   background: var(--bg-primary);
@@ -467,7 +459,7 @@ button {
   padding-top: 80px;
 }
 
-/* Floating blobs */
+
 .blob {
   position: absolute;
   border-radius: 50%;
@@ -521,7 +513,7 @@ button {
   z-index: 1;
 }
 
-/* Home Text */
+
 .home-text {
   flex: 1;
   max-width: 580px;
@@ -597,7 +589,7 @@ button {
   flex-wrap: wrap;
 }
 
-/* Home Image */
+
 .home-image {
   flex-shrink: 0;
   display: flex;
@@ -924,9 +916,7 @@ button {
   transform: translateY(-2px);
 }
 
-/* ================================================
-   PROJECTS SECTION
-   ================================================ */
+
 .projects-section {
   background: var(--bg-secondary);
 }
@@ -976,7 +966,6 @@ button {
   color: var(--accent-primary);
 }
 
-/* Gradient backgrounds for placeholders */
 .project-card:nth-child(1) .project-img-placeholder {
   background: linear-gradient(135deg, #0B0F19 0%, #1a2847 100%);
 }
@@ -1072,9 +1061,7 @@ button {
   margin-top: 4px;
 }
 
-/* ================================================
-   EDUCATION SECTION
-   ================================================ */
+
 .education-section {
   background: var(--bg-primary);
 }
@@ -1207,9 +1194,7 @@ button {
   font-weight: 700;
 }
 
-/* ================================================
-   INTERNSHIP SECTION
-   ================================================ */
+
 .internship-section {
   background: var(--bg-secondary);
 }
@@ -1331,9 +1316,7 @@ button {
   flex-shrink: 0;
 }
 
-/* ================================================
-   CONTACT SECTION
-   ================================================ */
+
 .contact-section {
   background: var(--bg-primary);
 }
@@ -1356,7 +1339,6 @@ button {
   text-align: left;
 }
 
-/* Contact Info */
 .contact-info h3 {
   font-family: var(--font-heading);
   font-size: clamp(22px, 3vw, 30px);
@@ -1432,9 +1414,7 @@ button {
   font-weight: 500;
 }
 
-/* ================================================
-   FOOTER
-   ================================================ */
+
 .footer {
   background: var(--bg-secondary);
   border-top: 1px solid var(--card-border);
@@ -1528,11 +1508,9 @@ button {
   transform: translateY(-3px);
 }
 
-/* ================================================
-   RESPONSIVE DESIGN
-   ================================================ */
 
-/* --- 1100px --- */
+
+
 @media (max-width: 1100px) {
   .social-sidebar {
     display: none;
@@ -1553,7 +1531,7 @@ button {
   }
 }
 
-/* --- 900px --- */
+
 @media (max-width: 900px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1579,9 +1557,9 @@ button {
   }
 }
 
-/* --- 768px (tablet) --- */
+
 @media (max-width: 768px) {
-  /* Navbar mobile */
+
   .hamburger {
     display: flex;
   }
@@ -1614,7 +1592,7 @@ button {
     text-align: center;
   }
 
-  /* Home section mobile */
+  
   .home-section {
     padding: 0 20px;
     padding-top: 80px;
@@ -1652,27 +1630,25 @@ button {
     height: 208px;
   }
 
-  /* Section container */
+  
   .section-container {
     padding: 80px 20px;
   }
 
-  /* Skills */
+
   .skills-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Projects */
   .projects-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Timeline */
+
   .timeline {
     padding-left: 36px;
   }
 
-  /* Footer */
   .footer-container {
     padding: 0 20px;
   }
@@ -1690,7 +1666,7 @@ button {
   }
 }
 
-/* --- 480px (small mobile) --- */
+
 @media (max-width: 480px) {
   .nav-container {
     padding: 0 20px;
@@ -1726,7 +1702,7 @@ button {
   }
 }
 
-/* ---- SCROLLBAR ---- */
+
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -1744,7 +1720,7 @@ button {
   background: var(--accent-primary);
 }
 
-/* ---- SELECTION ---- */
+
 ::selection {
   background: rgba(0, 194, 255, 0.25);
   color: var(--white);

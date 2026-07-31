@@ -1,29 +1,18 @@
-/**
- * PURVA KHURUD PORTFOLIO — SCRIPT.JS
- * Handles: Page Loader, Typing Animation, Navbar, Scroll Animations,
- * Counter Animation, Skills Progress Bars, Hamburger Menu,
- * Contact Form, Cursor Glow, Back to Top.
- */
 
-/* ============================================================
-   1. PAGE LOADER
-   ============================================================ */
 window.addEventListener('load', () => {
   const loader = document.getElementById('pageLoader');
   if (!loader) return;
 
-  // Brief delay so the loader is visible
+
   setTimeout(() => {
     loader.classList.add('hidden');
-    // Trigger initial visible animations once page is loaded
+  
     observeElements();
   }, 900);
 });
 
 
-/* ============================================================
-   2. PROFILE IMAGE FALLBACK
-   ============================================================ */
+
 const profileImg = document.getElementById('profileImg');
 const profilePlaceholder = document.getElementById('profilePlaceholder');
 
@@ -33,22 +22,21 @@ if (profileImg && profilePlaceholder) {
     profilePlaceholder.style.display = 'flex';
   });
 
-  // If already broken (cached 404)
+
   if (!profileImg.complete || profileImg.naturalWidth === 0) {
     profileImg.dispatchEvent(new Event('error'));
   }
 }
 
 
-/* ============================================================
-   3. TYPING ANIMATION
-   ============================================================ */
+
 const typingEl = document.getElementById('typingText');
 const roles = [
   'Python Developer',
   'Software Developer',
   'Data Analyst',
-  'Machine Learning Engineer'
+  'Machine Learning Engineer',
+  'AI Engineer'
 ];
 
 let roleIndex = 0;
@@ -87,13 +75,11 @@ function typeWriter() {
   }
 }
 
-// Start typing after loader
+
 setTimeout(typeWriter, 1000);
 
 
-/* ============================================================
-   4. NAVBAR — Scroll Effect + Active Link
-   ============================================================ */
+
 const navbar = document.getElementById('navbar');
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section[id]');
@@ -128,14 +114,12 @@ window.addEventListener('scroll', () => {
   updateActiveNavLink();
 }, { passive: true });
 
-// Run on load
+
 updateNavbar();
 updateActiveNavLink();
 
 
-/* ============================================================
-   5. HAMBURGER MENU
-   ============================================================ */
+
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navLinks');
 
@@ -146,7 +130,7 @@ if (hamburger && navMenu) {
     document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
   });
 
-  // Close on nav link click
+
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
@@ -155,7 +139,7 @@ if (hamburger && navMenu) {
     });
   });
 
-  // Close on outside click
+
   document.addEventListener('click', (e) => {
     if (!navbar.contains(e.target)) {
       hamburger.classList.remove('active');
@@ -166,9 +150,7 @@ if (hamburger && navMenu) {
 }
 
 
-/* ============================================================
-   6. SMOOTH SCROLL for anchor links
-   ============================================================ */
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const href = this.getAttribute('href');
@@ -183,9 +165,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 
-/* ============================================================
-   7. INTERSECTION OBSERVER — Scroll Animations
-   ============================================================ */
+
 function observeElements() {
   const observerOptions = {
     threshold: 0.1,
@@ -195,22 +175,22 @@ function observeElements() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        // Stagger delay for grids
+
         const parent = entry.target.parentElement;
         const siblings = Array.from(parent.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right'));
         const idx = siblings.indexOf(entry.target);
-        const delay = idx * 80; // ms stagger
+        const delay = idx * 80; 
 
         setTimeout(() => {
           entry.target.classList.add('visible');
 
-          // Trigger skill bars if inside a skill category
+          
           const bars = entry.target.querySelectorAll('.skill-progress[data-width]');
           bars.forEach(bar => {
             bar.style.width = bar.dataset.width + '%';
           });
 
-          // Trigger counters if stat card is visible
+       
           const counters = entry.target.querySelectorAll('[data-count]');
           counters.forEach(counter => animateCounter(counter));
         }, delay);
@@ -226,20 +206,17 @@ function observeElements() {
 }
 
 
-/* ============================================================
-   8. COUNTER ANIMATION
-   ============================================================ */
 function animateCounter(el) {
   const target = parseFloat(el.dataset.count);
   const isDecimal = el.dataset.decimal === 'true';
-  const duration = 2000; // ms
+  const duration = 2000; 
   const startTime = performance.now();
   const startVal = 0;
 
   function update(currentTime) {
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    // Ease out cubic
+   
     const eased = 1 - Math.pow(1 - progress, 3);
     const current = startVal + (target - startVal) * eased;
 
@@ -256,12 +233,7 @@ function animateCounter(el) {
 }
 
 
-/* ============================================================
-   9. SKILL PROGRESS BARS (fallback for already-visible)
-   ============================================================ */
-// Bars will be animated by the IntersectionObserver when their
-// parent card becomes visible. This is a safety net for bars
-// already in the viewport on load.
+
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.querySelectorAll('.skill-progress[data-width]').forEach(bar => {
@@ -277,9 +249,7 @@ window.addEventListener('load', () => {
 });
 
 
-/* ============================================================
-   10. CURSOR GLOW
-   ============================================================ */
+
 const cursorGlow = document.getElementById('cursorGlow');
 
 if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
@@ -292,9 +262,7 @@ if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
 }
 
 
-/* ============================================================
-   12. BACK TO TOP
-   ============================================================ */
+
 const backToTopBtn = document.getElementById('backToTop');
 
 if (backToTopBtn) {
@@ -304,18 +272,14 @@ if (backToTopBtn) {
 }
 
 
-/* ============================================================
-   13. FOOTER YEAR
-   ============================================================ */
+
 const yearEl = document.getElementById('year');
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
 
-/* ============================================================
-   14. NAVBAR LOGO SMOOTH SCROLL
-   ============================================================ */
+
 const navLogo = document.querySelector('.nav-logo');
 if (navLogo) {
   navLogo.addEventListener('click', (e) => {
