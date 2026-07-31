@@ -3,7 +3,7 @@
 A premium, dark-themed, fully responsive personal portfolio built with plain
 **HTML5, CSS3, and vanilla JavaScript** — no frameworks, no build step.
 
-🔗 **Live demo:** 
+
 
 ---
 
